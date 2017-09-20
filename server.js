@@ -1,46 +1,12 @@
 //express and body parser
 var express = require("express");
-var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
-var session = require('express-session');
-var passport = require('passport');
+var validator = require('validator');
+
 
 var app = express();
 var port = process.env.PORT || 3000;
 
-app.use(express.static("public"));
-// app.use(express.static(__dirname + '/public'));
-
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
-
-//bodyParser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.text());
-app.use(bodyParser.json({
-    type: 'application/vnd.api+json'
-}));
-
-//express-session to keep the user logged in
-app.use(session({
-    secret: 'keyboard cat',
-    cookie: {
-        maxAge: 60000
-    },
-    resave: true,
-    saveUninitialized: true
-}));
-
-app.use("/", routes);
+console.log(validator.isEmail('foo@bar.com')); //=> true
 
 app.listen(port, function() {
-    console.log("Listening on PORT " + port);
+    console.log("Listening on PORT " + port)})
