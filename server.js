@@ -1,12 +1,9 @@
 //express and body parser
 var express = require("express");
-var flash = require('connect-flash');
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var session = require('express-session');
 var passport = require('passport');
-//var server = require('http').Server(app);
-//var io = require('socket.io').listen(server);
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -32,13 +29,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({
     type: 'application/vnd.api+json'
 }));
-
-//flash to show a message on incorrect login
-app.use(flash());
-
-//passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
 
 //express-session to keep the user logged in
 app.use(session({
