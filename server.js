@@ -24,7 +24,7 @@ console.log(validator.isCreditCard(fakecreditcard)); //=> false
 
 console.log(validator.isEmpty(empty)); //=> true
 
-console.log(validator.isEmpty(notEmpty)); //=> false
+console.log(validator.isEmpty(notEmpty)) //=> false
 
 app.listen(port, function() {
     console.log("Listening on PORT " + port)})
