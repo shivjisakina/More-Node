@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "async-validator": "^1.8.1",
     "events": "^1.1.1",
     "express": "^4.15.4",
     "validator": "^8.2.0"

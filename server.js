@@ -1,4 +1,5 @@
 const EventEmitter = require('events');
+var schema = require('async-validator');
 
 const myEmitter = new EventEmitter();
 
@@ -17,6 +18,8 @@ var empty = "";
 var notEmpty = "not empty";
 var domain = "google.com";
 var notDomain = "sjdl.c";
+var alphaNum = "SJA8271";
+var notAlphaNum = "fjdlk";
 
 //Create an event handler:
 const emailHandler = function () {
@@ -25,14 +28,11 @@ const emailHandler = function () {
     console.log(validator.isBoolean(email)); //=> false
     };
 
-//Assign the event handler to an event:
 myEmitter.on('email', emailHandler);
 
-//Fire the 'scream' event:
 myEmitter.emit('email');
-// Prints: I hear a scream!
 
-console.log(validator.isBoolean(boolean)); //=> true
+console.log(validator.isBoolean("boolean" + boolean)); //=> true
 
 console.log(validator.isCreditCard(creditcard)); //=> true
 
@@ -45,6 +45,8 @@ console.log(validator.isEmpty(notEmpty)); //=> false
 console.log(validator.isFQDN(domain)); //=> true
 
 console.log(validator.isFQDN(notDomain)); //=> false
+
+console.log(validator.isAlphanumeric(alphaNum)); //=> true
 
 app.listen(port, function() {
     console.log("Listening on PORT " + port)})
